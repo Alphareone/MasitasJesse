@@ -1,1 +1,23 @@
-{"name": "Masas Jessy", "display": "standalone"}
+
+{
+  "name": "Masas Jessy - Recetas de Mamá",
+  "short_name": "Masas Jessy",
+  "description": "Empanadas artesanales y masas listas para congelar o freír en la Región de Valparaíso.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FEF3C7",
+  "theme_color": "#B91C1C",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./img/masasjesse.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/masasjesse.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
