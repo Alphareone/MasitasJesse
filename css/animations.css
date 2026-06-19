@@ -1,0 +1,10 @@
+
+.hero-content{animation:fadeIn 1s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.card:hover{transform:translateY(-5px);transition:.3s}
+
+/* Hace que la página navegue suavemente al hacer clic en el menú */
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* Evita que la barra de navegación tape los títulos al bajar */
+    }
