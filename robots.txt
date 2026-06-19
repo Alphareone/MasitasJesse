@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+
+# Indica a Google exactamente dónde está el mapa de tu sitio
+Sitemap: https://masasjessy.cl/sitemap.xml
