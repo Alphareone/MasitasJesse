@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masas Jessy - Recetas de Mamá</title>
+    
     <!-- Tailwind CSS para diseño rápido y responsivo -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Fuentes de Google para el toque casero y legible -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght=700&family=Poppins:wght=400;600;700&display=swap" rel="stylesheet">
     
+    <!-- Configuración extendida de Tailwind -->
     <script>
         tailwind.config = {
             theme: {
@@ -28,102 +31,105 @@
             }
         }
     </script>
+
+    <!-- VÍNCULO A TU CSS SEPARADO -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-crema-hogar font-texto text-gray-800">
+<body class="bg-crema-hogar font-texto text-gray-800 antialiased overflow-x-hidden">
 
     <!-- 1. SECCIÓN HERO (PRINCIPAL) -->
-    <header class="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center justify-between max-w-6xl">
-        <div class="md:w-1/2 space-y-6 text-center md:text-left">
+    <header class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center justify-between max-w-6xl min-h-[75vh]">
+        <div class="md:w-1/2 space-y-6 text-center md:text-left reveal-left">
             <h1 class="text-5xl md:text-6xl font-bold text-rojo-amor leading-tight">
                 Empanadas de Queso <br>
-                <span class="font-casera text-dorado-empanada text-6xl block mt-2">Listas para Freír</span>
+                <span class="font-casera text-dorado-empanada text-6xl block mt-2 animate-pulse-subtle">Listas para Freír</span>
             </h1>
-            <p class="text-lg text-gray-6xl max-w-md mx-auto md:mx-0">
+            <p class="text-lg text-gray-600 max-w-md mx-auto md:mx-0">
                 Disfruta en casa empanadas ricas, crujientes y con muuucho queso. Hechas con amor y la auténtica receta de mamá.
             </p>
             <div class="pt-4">
-                <a href="https://wa.me/56922438953" target="_blank" class="inline-block bg-[#25D366] text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-[#20ba5a] transition transform hover:scale-105">
+                <a href="https://wa.me/56922438953" target="_blank" class="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-[#20ba5a] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl btn-pulse">
                     🟢 Pedir al WhatsApp
                 </a>
             </div>
         </div>
-        <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center">
-            <!-- Aquí colocas la ilustración principal de "image_670c1d.jpg" o "image_670b5f.jpg" -->
-            <img src="image_670b5f.jpg" alt="Empanadas de Queso Masas Jessy" class="rounded-2xl shadow-xl max-w-sm md:max-w-md border-4 border-white">
+        <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center reveal-right">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-dorado-empanada to-rojo-amor rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <img src="image_670b5f.jpg" alt="Empanadas de Queso Masas Jessy" class="relative rounded-2xl shadow-xl max-w-sm md:max-w-md border-4 border-white transform transition-transform duration-500 group-hover:scale-[1.02]">
+            </div>
         </div>
     </header>
 
     <hr class="border-t-2 border-dashed border-rojo-amor/20 my-6 max-w-6xl mx-auto">
 
     <!-- 2. PROPUESTA DE VALOR (CARACTERÍSTICAS) -->
-    <section class="container mx-auto px-4 py-8 max-w-6xl">
+    <section class="container mx-auto px-4 py-12 max-w-6xl">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100">
-                <span class="text-3xl block mb-2">🥖</span>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-dorado-empanada/40 scroll-reveal">
+                <span class="text-4xl block mb-3 float-animation">🥖</span>
                 <h3 class="font-bold text-rojo-amor">Masa Casera</h3>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100">
-                <span class="text-3xl block mb-2">🧀</span>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-dorado-empanada/40 scroll-reveal">
+                <span class="text-4xl block mb-3 float-animation" style="animation-delay: 0.2s;">🧀</span>
                 <h3 class="font-bold text-rojo-amor">Queso Real</h3>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100">
-                <span class="text-3xl block mb-2">📐</span>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-dorado-empanada/40 scroll-reveal">
+                <span class="text-4xl block mb-3 float-animation" style="animation-delay: 0.4s;">📐</span>
                 <h3 class="font-bold text-rojo-amor">Tamaño Ideal (15 cm)</h3>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100">
-                <span class="text-3xl block mb-2">❄️</span>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-dorado-empanada/40 scroll-reveal">
+                <span class="text-4xl block mb-3 float-animation" style="animation-delay: 0.6s;">❄️</span>
                 <h3 class="font-bold text-rojo-amor">Se pueden congelar</h3>
             </div>
         </div>
-        <div class="bg-amber-50 border-l-4 border-dorado-empanada p-4 rounded-r-xl mt-8 text-center max-w-2xl mx-auto">
+        <div class="bg-amber-50 border-l-4 border-dorado-empanada p-4 rounded-r-xl mt-10 text-center max-w-2xl mx-auto scroll-reveal">
             <p class="font-semibold text-amber-900">💡 Tip de cocina: Freír directo (sin descongelar) para un mejor resultado crujiente.</p>
         </div>
     </section>
 
     <!-- 3. PRECIOS Y PACKS -->
-    <section class="bg-white py-16 border-y border-orange-100">
+    <section class="bg-white py-20 border-y border-orange-100">
         <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h2 class="text-3xl font-bold text-rojo-amor mb-2">Nuestros Precios</h2>
-            <p class="text-gray-500 mb-10 font-casera text-3xl">¡Elige tu pack favorito!</p>
+            <h2 class="text-4xl font-bold text-rojo-amor mb-2 scroll-reveal">Nuestros Precios</h2>
+            <p class="text-gray-500 mb-12 font-casera text-3xl scroll-reveal">¡Elige tu pack favorito!</p>
             
-            <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto items-center">
                 <!-- Pack 6 -->
-                <div class="border-2 border-dorado-empanada rounded-2xl p-8 bg-crema-hogar/50 relative overflow-hidden shadow-md">
+                <div class="border-2 border-dorado-empanada rounded-2xl p-8 bg-crema-hogar/50 shadow-md transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg scroll-reveal">
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">PACK 6 UDS</h3>
-                    <p class="text-4xl font-extrabold text-rojo-amor mb-6">$6.000</p>
-                    <a href="https://wa.me/56922438953?text=Hola!%20Quiero%20encargar%20el%20Pack%20de%206%20empanadas" target="_blank" class="block w-full bg-rojo-amor text-white font-semibold py-2 rounded-lg hover:bg-red-800 transition">Encargar Pack</a>
+                    <p class="text-5xl font-extrabold text-rojo-amor mb-6">$6.000</p>
+                    <a href="https://wa.me/56922438953?text=Hola!%20Quiero%20encargar%20el%20Pack%20de%206%20empanadas" target="_blank" class="block w-full bg-rojo-amor text-white font-semibold py-3 rounded-lg hover:bg-red-800 transition-all duration-300 shadow">Encargar Pack</a>
                 </div>
                 <!-- Pack 12 -->
-                <div class="border-2 border-rojo-amor rounded-2xl p-8 bg-crema-hogar relative overflow-hidden shadow-lg scale-105">
-                    <span class="absolute top-0 right-0 bg-rojo-amor text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase">Más Vendido</span>
+                <div class="border-2 border-rojo-amor rounded-2xl p-8 bg-crema-hogar shadow-lg md:scale-105 relative transform transition-all duration-300 hover:scale-[1.07] hover:shadow-xl scroll-reveal">
+                    <span class="absolute -top-3 right-6 bg-rojo-amor text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow src-bounce">Más Vendido</span>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">PACK 12 UDS</h3>
-                    <p class="text-4xl font-extrabold text-rojo-amor mb-6">$12.000</p>
-                    <a href="https://wa.me/56922438953?text=Hola!%20Quiero%20encargar%20el%20Pack%20de%2012%20empanadas" target="_blank" class="block w-full bg-rojo-amor text-white font-semibold py-2 rounded-lg hover:bg-red-800 transition">Encargar Pack</a>
+                    <p class="text-5xl font-extrabold text-rojo-amor mb-6">$12.000</p>
+                    <a href="https://wa.me/56922438953?text=Hola!%20Quiero%20encargar%20el%20Pack%20de%2012%20empanadas" target="_blank" class="block w-full bg-rojo-amor text-white font-semibold py-3 rounded-lg hover:bg-red-800 transition-all duration-300 shadow">Encargar Pack</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 4. GALERÍA / PROCESO -->
-    <section class="container mx-auto px-4 py-16 max-w-6xl text-center">
-        <h2 class="text-3xl font-bold text-rojo-amor mb-8 font-casera text-4xl">Hechas con Amor</h2>
+    <section class="container mx-auto px-4 py-20 max-w-6xl text-center">
+        <h2 class="text-4xl font-bold text-rojo-amor mb-10 font-casera text-5xl scroll-reveal">Hechas con Amor</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- Usa tus imágenes reales aquí -->
-            <div class="overflow-hidden rounded-xl shadow-md border-4 border-white">
+            <div class="overflow-hidden rounded-xl shadow-md border-4 border-white scroll-reveal">
                 <img src="image_670bfa.jpg" alt="Ingredientes frescos" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
             </div>
-            <div class="overflow-hidden rounded-xl shadow-md border-4 border-white">
+            <div class="overflow-hidden rounded-xl shadow-md border-4 border-white scroll-reveal">
                 <img src="image_670b85.jpg" alt="Packs listos" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
             </div>
-            <div class="overflow-hidden rounded-xl shadow-md border-4 border-white">
-                <!-- Puedes usar una sección de image_670c1d.jpg -->
+            <div class="overflow-hidden rounded-xl shadow-md border-4 border-white scroll-reveal">
                 <img src="image_670c1d.jpg" alt="Proceso artesanal" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
             </div>
         </div>
     </section>
 
     <!-- 5. TESTIMONIOS (CLIENTES FELICES) -->
-    <section class="bg-rojo-amor text-white py-16">
+    <section class="bg-rojo-amor text-white py-16 scroll-reveal">
         <div class="container mx-auto px-4 max-w-4xl text-center">
             <h2 class="font-casera text-5xl mb-8">Clientes Felices ❤️</h2>
             <div class="grid md:grid-cols-2 gap-6">
@@ -132,7 +138,6 @@
                     <span class="block mt-4 font-bold text-dorado-empanada">- Cliente de Instagram</span>
                 </div>
                 <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm text-left flex items-center gap-4">
-                    <!-- Referencia visual a image_670bbe.jpg -->
                     <img src="image_670bbe.jpg" alt="Cliente" class="w-16 h-16 rounded-full object-cover border-2 border-white">
                     <div>
                         <p class="italic text-sm">"Vienen impecables, súper bien selladas para directo al freezer."</p>
@@ -152,5 +157,7 @@
         </div>
     </footer>
 
+    <!-- ENLACE SEGURO AL ARCHIVO SCRIPT -->
+    <script src="script.js" defer></script>
 </body>
 </html>
