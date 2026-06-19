@@ -1,163 +1,345 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- ==========================================
+         CONFIGURACIÓN BÁSICA Y METADATOS (SEO)
+         ========================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masas Jessy - Recetas de Mamá</title>
+    <title>Masas Jessy | Recetas de Mamá</title>
+    <meta name="description" content="Empanadas artesanales listas para freír y congelar en Quilpué, Villa Alemana y Viña del Mar. Hechas 100% a mano.">
     
-    <!-- Tailwind CSS para diseño rápido y responsivo -->
+    <!-- ==========================================
+         ESTILOS, FUENTES Y LIBRERÍAS EXTERNAS
+         ========================================== -->
+    <!-- Framework Tailwind CSS para diseño rápido -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fuentes de Google para el toque casero y legible -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght=700&family=Poppins:wght=400;600;700&display=swap" rel="stylesheet">
+    <!-- Fuentes de Google: Playfair para títulos, Inter para textos -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Configuración extendida de Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'crema-hogar': '#FDF6EC',
-                        'rojo-amor': '#9E1B1B',
-                        'dorado-empanada': '#F5A623',
-                    },
-                    fontFamily: {
-                        'casera': ['Caveat', 'cursive'],
-                        'texto': ['Poppins', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Archivos CSS nativos de la estructura V5 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- ==========================================
+         FAVICON (Icono de la Pestaña del Navegador)
+         ========================================== -->
+    <link rel="icon" type="image/png" href="./img/masasjesse.png">
+    <link rel="apple-touch-icon" href="./img/masasjesse.png">
 
-    <!-- VÍNCULO A TU CSS SEPARADO -->
-    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-crema-hogar font-texto text-gray-800 antialiased overflow-x-hidden">
+<body class="bg-amber-50/30 text-gray-800 font-['Inter']">
 
-    <!-- 1. SECCIÓN HERO (PRINCIPAL) -->
-    <header class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center justify-between max-w-6xl min-h-[75vh]">
-        <div class="md:w-1/2 space-y-6 text-center md:text-left reveal-left">
-            <h1 class="text-5xl md:text-6xl font-bold text-rojo-amor leading-tight">
-                Empanadas de Queso <br>
-                <span class="font-casera text-dorado-empanada text-6xl block mt-2 animate-pulse-subtle">Listas para Freír</span>
-            </h1>
-            <p class="text-lg text-gray-600 max-w-md mx-auto md:mx-0">
-                Disfruta en casa empanadas ricas, crujientes y con muuucho queso. Hechas con amor y la auténtica receta de mamá.
-            </p>
-            <div class="pt-4">
-                <a href="https://wa.me/56922438953" target="_blank" class="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-[#20ba5a] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl btn-pulse">
-                    🟢 Pedir al WhatsApp
-                </a>
+<!-- ==========================================
+     BARRA DE NAVEGACIÓN (Sticky / Menú Superior)
+     ========================================== -->
+<nav class="navbar sticky top-0 z-50 bg-white/90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-sm">
+    <!-- Logo de texto izquierdo -->
+    <a href="#" class="logo font-['Playfair_Display'] text-2xl font-bold text-red-700 hover:opacity-90 transition">Masas Jessy</a>
+    
+    <!-- Enlaces de navegación centrales y botón de Redes -->
+    <div class="hidden md:flex items-center gap-8">
+        <ul class="flex gap-6 font-semibold text-gray-600">
+            <li><a href="#" class="hover:text-red-700 cursor-pointer transition">Inicio</a></li>
+            <li><a href="#beneficios" class="hover:text-red-700 cursor-pointer transition">¿Por qué elegirnos?</a></li>
+            <li><a href="#productos" class="hover:text-red-700 cursor-pointer transition">Productos</a></li>
+            <li><a href="#galeria" class="hover:text-red-700 cursor-pointer transition">El Proceso</a></li>
+            <li><a href="#testimonios" class="hover:text-red-700 cursor-pointer transition">Testimonios</a></li>
+        </ul>
+        
+        <!-- Botón Oficial Instagram en Navbar -->
+        <a href="https://www.instagram.com/jessymasitas" target="_blank" class="bg-gradient-to-r from-[#833AB4] to-[#FD1D1D] text-white text-xs font-bold px-4 py-2 rounded-full shadow-sm hover:opacity-90 transition flex items-center gap-2">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            @jessymasitas
+        </a>
+    </div>
+</nav>
+<!-- ==========================================
+         SECCIÓN PRINCIPAL (Header / Hero)
+         ========================================== -->
+    <header class="hero relative min-h-[85vh] flex items-center justify-center text-center text-white px-4 bg-cover bg-center" style="background-image: linear-gradient(rgba(254, 243, 199, 0.92), rgba(254, 243, 199, 0.92)), url('./img/preparacion.jpg');">
+        <div class="hero-content max-w-3xl flex flex-col items-center">
+            
+            <!-- Logo Oficial de la Marca -->
+            <div class="w-48 h-48 sm:w-56 sm:h-56 drop-shadow-xl mb-6 transform hover:scale-105 transition duration-300">
+                <img src="./img/masasjesse.png" alt="Masas Jessy Logo" class="w-full h-full object-contain">
             </div>
-        </div>
-        <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center reveal-right">
-            <div class="relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-dorado-empanada to-rojo-amor rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                <img src="image_670b5f.jpg" alt="Empanadas de Queso Masas Jessy" class="relative rounded-2xl shadow-xl max-w-sm md:max-w-md border-4 border-white transform transition-transform duration-500 group-hover:scale-[1.02]">
+
+            <!-- Textos de Presentación de Alto Contraste -->
+            <h1 class="font-['Playfair_Display'] text-4xl sm:text-5xl font-bold mb-3 text-red-700">El sabor de casa, cuando tú quieras </h1>
+            <p class="text-base sm:text-lg text-amber-900 font-medium mb-8 max-w-xl mx-auto">Empanadas artesanales y masas listas para congelar o freír. Hechas con amor, abundancia y las verdaderas recetas de mamá.</p>
+            
+            <!-- SECCIÓN DE REDES SOCIALES / BOTONES DE ACCIÓN -->
+            <div class="flex flex-col sm:flex-row gap-4 w-full justify-center items-center">
+                
+                <!-- Botón de WhatsApp Oficial (Vector Seguro) -->
+                <a href="https://wa.me/56922438953?text=Hola!%20Me%20gustaría%20hacer%20un%20pedido" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#22c35e] text-white font-bold px-8 py-4 rounded-full shadow-lg transition inline-flex items-center justify-center gap-3 text-lg transform hover:scale-105 duration-300">
+                    <!-- Icono SVG de WhatsApp Oficial y Proporcional -->
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.456h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    Escríbenos al WhatsApp
+                </a>
+
+                <!-- Botón de Instagram Oficial -->
+                <a href="https://www.instagram.com/jessymasitas" target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045] hover:opacity-95 text-white font-bold px-8 py-4 rounded-full shadow-lg transition inline-flex items-center justify-center gap-3 text-lg transform hover:scale-105 duration-300">
+                    <!-- Icono SVG de Instagram Oficial -->
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                    Ver nuestro Instagram
+                </a>
+
             </div>
         </div>
     </header>
 
-    <hr class="border-t-2 border-dashed border-rojo-amor/20 my-6 max-w-6xl mx-auto">
-
-    <!-- 2. PROPUESTA DE VALOR (CARACTERÍSTICAS) -->
-    <section class="container mx-auto px-4 py-12 max-w-6xl">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-dorado-empanada/40 scroll-reveal">
-                <span class="text-4xl block mb-3 float-animation">🥖</span>
-                <h3 class="font-bold text-rojo-amor">Masa Casera</h3>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-dorado-empanada/40 scroll-reveal">
-                <span class="text-4xl block mb-3 float-animation" style="animation-delay: 0.2s;">🧀</span>
-                <h3 class="font-bold text-rojo-amor">Queso Real</h3>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-dorado-empanada/40 scroll-reveal">
-                <span class="text-4xl block mb-3 float-animation" style="animation-delay: 0.4s;">📐</span>
-                <h3 class="font-bold text-rojo-amor">Tamaño Ideal (15 cm)</h3>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 transform transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-dorado-empanada/40 scroll-reveal">
-                <span class="text-4xl block mb-3 float-animation" style="animation-delay: 0.6s;">❄️</span>
-                <h3 class="font-bold text-rojo-amor">Se pueden congelar</h3>
-            </div>
+    <!-- ==========================================
+         SECCIÓN BENEFICIOS (¿Por qué elegirnos?)
+         ========================================== -->
+    <section id="beneficios" class="container mx-auto px-4 py-16 max-w-6xl">
+        <!-- Título de la sección -->
+        <div class="text-center mb-12">
+            <h2 class="font-['Playfair_Display'] text-4xl font-bold text-red-700 mb-2">¿Por qué elegir Masas Jessy?</h2>
+            <p class="text-sm text-gray-500">Cada detalle cuenta en nuestra cocina casera</p>
         </div>
-        <div class="bg-amber-50 border-l-4 border-dorado-empanada p-4 rounded-r-xl mt-10 text-center max-w-2xl mx-auto scroll-reveal">
-            <p class="font-semibold text-amber-900">💡 Tip de cocina: Freír directo (sin descongelar) para un mejor resultado crujiente.</p>
-        </div>
-    </section>
-
-    <!-- 3. PRECIOS Y PACKS -->
-    <section class="bg-white py-20 border-y border-orange-100">
-        <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h2 class="text-4xl font-bold text-rojo-amor mb-2 scroll-reveal">Nuestros Precios</h2>
-            <p class="text-gray-500 mb-12 font-casera text-3xl scroll-reveal">¡Elige tu pack favorito!</p>
+        
+        <!-- Bloque de Tarjetas de Beneficios (4 Columnas) -->
+        <div class="cards grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <!-- Beneficio 1: Masa Casera -->
+            <div class="card bg-white p-6 rounded-2xl border border-orange-100 shadow-sm flex flex-col items-center justify-between min-h-[240px]">
+                <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-amber-100 shadow-md">
+                    <img src="./img/preparacion.jpg" alt="Masa Casera" class="w-full h-full object-cover">
+                </div>
+                <h3 class="font-bold text-red-700 text-base md:text-lg">Masa Casera</h3>
+            </div>
             
-            <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto items-center">
-                <!-- Pack 6 -->
-                <div class="border-2 border-dorado-empanada rounded-2xl p-8 bg-crema-hogar/50 shadow-md transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg scroll-reveal">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">PACK 6 UDS</h3>
-                    <p class="text-5xl font-extrabold text-rojo-amor mb-6">$6.000</p>
-                    <a href="https://wa.me/56922438953?text=Hola!%20Quiero%20encargar%20el%20Pack%20de%206%20empanadas" target="_blank" class="block w-full bg-rojo-amor text-white font-semibold py-3 rounded-lg hover:bg-red-800 transition-all duration-300 shadow">Encargar Pack</a>
+            <!-- Beneficio 2: Queso Real -->
+            <div class="card bg-white p-6 rounded-2xl border border-orange-100 shadow-sm flex flex-col items-center justify-between min-h-[240px]">
+                <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-amber-100 shadow-md">
+                    <img src="./img/empanaditaqueso.png" alt="Queso Real" class="w-full h-full object-cover">
                 </div>
-                <!-- Pack 12 -->
-                <div class="border-2 border-rojo-amor rounded-2xl p-8 bg-crema-hogar shadow-lg md:scale-105 relative transform transition-all duration-300 hover:scale-[1.07] hover:shadow-xl scroll-reveal">
-                    <span class="absolute -top-3 right-6 bg-rojo-amor text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow src-bounce">Más Vendido</span>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">PACK 12 UDS</h3>
-                    <p class="text-5xl font-extrabold text-rojo-amor mb-6">$12.000</p>
-                    <a href="https://wa.me/56922438953?text=Hola!%20Quiero%20encargar%20el%20Pack%20de%2012%20empanadas" target="_blank" class="block w-full bg-rojo-amor text-white font-semibold py-3 rounded-lg hover:bg-red-800 transition-all duration-300 shadow">Encargar Pack</a>
+                <h3 class="font-bold text-red-700 text-base md:text-lg">Queso Real Mantecoso</h3>
+            </div>
+            
+            <!-- Beneficio 3: Tamaño Ideal -->
+            <div class="card bg-white p-6 rounded-2xl border border-orange-100 shadow-sm flex flex-col items-center justify-between min-h-[240px]">
+                <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-amber-100 shadow-md">
+                    <img src="./img/empanadita.jpg" alt="Tamaño Ideal" class="w-full h-full object-cover">
                 </div>
+                <h3 class="font-bold text-red-700 text-base md:text-lg">Tamaño Ideal (15 cm)</h3>
+            </div>
+            
+            <!-- Beneficio 4: Listas para congelar -->
+            <div class="card bg-white p-6 rounded-2xl border border-orange-100 shadow-sm flex flex-col items-center justify-between min-h-[240px]">
+                <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-amber-100 shadow-md">
+                    <img src="./img/hechasconamor-empanadas.jpg" alt="Para Congelar" class="w-full h-full object-cover">
+                </div>
+                <h3 class="font-bold text-red-700 text-base md:text-lg">Listas para Congelar</h3>
             </div>
         </div>
     </section>
 
-    <!-- 4. GALERÍA / PROCESO -->
-    <section class="container mx-auto px-4 py-20 max-w-6xl text-center">
-        <h2 class="text-4xl font-bold text-rojo-amor mb-10 font-casera text-5xl scroll-reveal">Hechas con Amor</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div class="overflow-hidden rounded-xl shadow-md border-4 border-white scroll-reveal">
-                <img src="image_670bfa.jpg" alt="Ingredientes frescos" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
-            </div>
-            <div class="overflow-hidden rounded-xl shadow-md border-4 border-white scroll-reveal">
-                <img src="image_670b85.jpg" alt="Packs listos" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
-            </div>
-            <div class="overflow-hidden rounded-xl shadow-md border-4 border-white scroll-reveal">
-                <img src="image_670c1d.jpg" alt="Proceso artesanal" class="w-full h-64 object-cover hover:scale-105 transition duration-300">
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. TESTIMONIOS (CLIENTES FELICES) -->
-    <section class="bg-rojo-amor text-white py-16 scroll-reveal">
-        <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h2 class="font-casera text-5xl mb-8">Clientes Felices ❤️</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm text-left">
-                    <p class="italic">"¡Infaltable el domingo de empanadas! Crujientes y con el queso perfecto."</p>
-                    <span class="block mt-4 font-bold text-dorado-empanada">- Cliente de Instagram</span>
+    <!-- ==========================================
+         SECCIÓN PRODUCTOS (Catálogo / Especialidades)
+         ========================================== -->
+    <section id="productos" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <!-- Título de la sección -->
+            <h2 class="font-['Playfair_Display'] text-4xl font-bold text-center text-red-700 mb-12">Nuestras Especialidades</h2>
+            
+            <!-- Cuadrícula de Productos (3 Columnas) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Producto 1: Empanadas de Queso -->
+                <div class="card border border-gray-100 rounded-2xl shadow-sm overflow-hidden flex flex-col bg-amber-50/10">
+                    <div class="h-56 overflow-hidden">
+                        <img src="./img/listaparacongelar.png" alt="Empanadas de Queso" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-gray-900 mb-2">Pack Empanadas de Queso</h3>
+                        <p class="text-sm text-gray-600 mb-4 flex-grow">Masa frita crujiente y un relleno de queso abundante y derretido. El clásico de las onces familiares.</p>
+                        <span class="text-red-700 font-bold text-lg block mb-4">Pack 6 / 12 unidades</span>
+                        <a href="https://wa.me/56922438953?text=Hola!%20Me%20interesa%20el%20pack%20de%20empanadas%20de%20queso" class="text-center bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 px-4 rounded-xl transition">Ordenar Ahora</a>
+                    </div>
                 </div>
-                <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm text-left flex items-center gap-4">
-                    <img src="image_670bbe.jpg" alt="Cliente" class="w-16 h-16 rounded-full object-cover border-2 border-white">
-                    <div>
-                        <p class="italic text-sm">"Vienen impecables, súper bien selladas para directo al freezer."</p>
-                        <span class="block mt-1 font-bold text-dorado-empanada">- Pedido Agendado</span>
+                
+                <!-- Producto 2: Especial Napolitana -->
+                <div class="card border border-gray-100 rounded-2xl shadow-sm overflow-hidden flex flex-col bg-amber-50/10">
+                    <div class="h-56 overflow-hidden">
+                        <img src="./img/especial napolitana.jpg" alt="Especial Napolitana" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-gray-900 mb-2">Especial Napolitana</h3>
+                        <p class="text-sm text-gray-600 mb-4 flex-grow">Jamón seleccionado, abundante queso mantecoso fundido y un toque perfecto de especias secretas.</p>
+                        <span class="text-red-700 font-bold text-lg block mb-4">Receta Especial</span>
+                        <a href="https://wa.me/56922438953?text=Hola!%20Me%20interesa%20la%20especial%20napolitana" class="text-center bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 px-4 rounded-xl transition">Ordenar Ahora</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 3: Sopaipillas Caseras -->
+                <div class="card border border-gray-100 rounded-2xl shadow-sm overflow-hidden flex flex-col bg-amber-50/10">
+                    <div class="h-56 overflow-hidden">
+                        <img src="./img/sopaipillas.jpg" alt="Sopaipillas Caseras" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-gray-900 mb-2">Sopaipillas Caseras</h3>
+                        <p class="text-sm text-gray-600 mb-4 flex-grow">Elaboradas con zapallo de verdad. Tienen la consistencia perfecta para disfrutarlas secas o pasadas.</p>
+                        <span class="text-red-700 font-bold text-lg block mb-4">Tradición Casera</span>
+                        <a href="https://wa.me/56922438953?text=Hola!%20Me%20interesan%20las%20sopaipillas" class="text-center bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 px-4 rounded-xl transition">Ordenar Ahora</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. FOOTER / LOGÍSTICA -->
-    <footer class="bg-gray-900 text-gray-400 py-12 text-center">
-        <div class="container mx-auto px-4 max-w-4xl space-y-4">
-            <p class="text-white font-bold text-xl">Masas Jessy - Recetas de Mamá</p>
-            <p class="text-sm">📍 Entrega a coordinar | 📞 +56922438953</p>
-            <p class="text-xs text-gray-500">Síguenos en Instagram: <a href="https://www.instagram.com/jessymasitas" target="_blank" class="text-dorado-empanada hover:underline">@jessymasitas</a></p>
+    <!-- ==========================================
+         SECCIÓN EL PROCESO (Demostración Paso a Paso)
+         ========================================== -->
+    <section id="galeria" class="bg-amber-100/40 py-16 border-t border-b border-amber-100">
+        <div class="container mx-auto px-4 max-w-6xl text-center">
+            <!-- Títulos descriptivos -->
+            <h2 class="font-['Playfair_Display'] text-4xl font-bold text-red-700 mb-2">Proceso Natural Hecho a Mano</h2>
+            <p class="text-gray-600 max-w-xl mx-auto mb-12 text-sm sm:text-base">Sin aditivos industriales. Te mostramos cómo preparamos cada pedido con dedicación.</p>
+            
+            <!-- Bloque de Pasos de Preparación (4 Columnas) -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
+                
+                <!-- Paso 1: Estirado -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm flex flex-col items-center text-center">
+                    <img src="./img/preparacion.jpg" class="rounded-xl w-full h-44 object-cover mb-3" alt="Estirado de masa">
+                    <span class="bg-red-700 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase mb-2">Paso 1</span>
+                    <h4 class="font-bold text-gray-800 text-base mb-1">Masa Uslerada</h4>
+                    <p class="text-xs text-gray-500">Estiramos la masa a mano con uslero logrando el grosor ideal.</p>
+                </div>
+
+                <!-- Paso 2: Corte -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm flex flex-col items-center text-center">
+                    <img src="./img/formacion.jpg" class="rounded-xl w-full h-44 object-cover mb-3" alt="Discos de masa">
+                    <span class="bg-red-700 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase mb-2">Paso 2</span>
+                    <h4 class="font-bold text-gray-800 text-base mb-1">Corte de Discos</h4>
+                    <p class="text-xs text-gray-500">Separamos las porciones individualmente de manera limpia.</p>
+                </div>
+
+                <!-- Paso 3: Relleno -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm flex flex-col items-center text-center">
+                    <img src="./img/quesitoreal (1).png" class="rounded-xl w-full h-44 object-cover mb-3" alt="Relleno de queso">
+                    <span class="bg-red-700 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase mb-2">Paso 3</span>
+                    <h4 class="font-bold text-gray-800 text-base mb-1">Mucho Queso Real</h4>
+                    <p class="text-xs text-gray-500">Rellenamos abundantemente con queso mantecoso de calidad.</p>
+                </div>
+
+                <!-- Paso 4: Sellado -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm flex flex-col items-center text-center">
+                    <img src="./img/empanadita.jpg" class="rounded-xl w-full h-44 object-cover mb-3" alt="Empanada terminada">
+                    <span class="bg-red-700 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase mb-2">Paso 4</span>
+                    <h4 class="font-bold text-gray-800 text-base mb-1">Repulgue y Cierre</h4>
+                    <p class="text-xs text-gray-500">Sellamos artesanalmente los bordes para un horneado o fritura perfectos.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN TESTIMONIOS (Reseñas de Redes Sociales)
+         ========================================== -->
+    <section id="testimonios" class="bg-red-700 text-white py-16">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <!-- Título de la sección -->
+            <h2 class="font-['Playfair_Display'] text-4xl font-bold mb-3">Clientes Felices </h2>
+            <p class="text-amber-200 text-sm max-w-md mx-auto mb-10">Capturas reales de nuestros vecinos recomendando las masas en Quilpué y alrededores.</p>
+            
+            <!-- Malla de Testimonios (3 Columnas, Tarjetas oscuras/claras imitadoras de capturas) -->
+            <div class="grid md:grid-cols-3 gap-6 text-left text-gray-800">
+                <!-- Testimonio 1: Instagram -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
+                    <div class="p-3 bg-gray-50 border-b flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-yellow-500 to-purple-600 p-[1.5px]">
+                            <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-[10px] font-bold text-red-700">MJ</div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-900">@cliente_ig</span>
+                    </div>
+                    <div class="bg-gray-950 flex-grow flex items-center justify-center h-80">
+                        <img src="./img/saludos1.png" alt="Testimonio real" class="w-full h-full object-contain">
+                    </div>
+                </div>
+                
+                <!-- Testimonio 2: Facebook / Reseña Regional -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
+                    <div class="p-3 bg-gray-50 border-b flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-yellow-500 to-purple-600 p-[1.5px]">
+                            <div class="w-full h-full bg-white rounded-full flex items-center justify-center text-[10px] font-bold text-red-700">MJ</div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-900">@comentarios_vregion</span>
+                    </div>
+                    <div class="bg-gray-950 flex-grow flex items-center justify-center h-80">
+                        <img src="./img/ClientesFelices.jpg" alt="Testimonio real" class="w-full h-full object-contain">
+                    </div>
+                </div>
+                
+                <!-- Testimonio 3: Chat de WhatsApp -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
+                    <div class="p-3 bg-gray-50 border-b flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-bold">💬</div>
+                        <span class="text-xs font-bold text-gray-900">Mensaje Directo WhatsApp</span>
+                    </div>
+                    <div class="bg-gray-950 flex-grow flex items-center justify-center h-80">
+                        <img src="./img/saludos3.png" alt="Mensaje de WhatsApp" class="w-full h-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ==========================================
+         PIE DE PÁGINA (Footer Profesional)
+         ========================================== -->
+    <footer class="bg-stone-900 text-stone-300 pt-12 pb-6 px-6 border-t-4 border-red-700">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+            
+            <!-- Columna 1: Sobre Nosotros / Marca -->
+            <div class="flex flex-col items-center md:items-start gap-3">
+                <h3 class="font-['Playfair_Display'] text-2xl font-bold text-white">Masas Jessy</h3>
+                <p class="text-sm text-stone-400 max-w-xs">El sabor de casa, cuando tú quieras. Llevamos las mejores empanadas artesanales y masas listas a tu mesa.</p>
+            </div>
+
+            <!-- Columna 2: Enlaces Rápidos -->
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <h4 class="font-bold text-white text-lg tracking-wide uppercase text-sm mb-1">Navegación</h4>
+                <ul class="space-y-2 text-sm font-medium">
+                    <li><a href="#" class="hover:text-red-400 transition">Inicio</a></li>
+                    <li><a href="#beneficios" class="hover:text-red-400 transition">¿Por qué elegirnos?</a></li>
+                    <li><a href="#productos" class="hover:text-red-400 transition">Productos</a></li>
+                    <li><a href="#testimonios" class="hover:text-red-400 transition">Testimonios</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Cobertura y Contacto Directo -->
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <h4 class="font-bold text-white text-lg tracking-wide uppercase text-sm mb-1">Zona de Despacho</h4>
+                <p class="text-sm text-stone-400 mb-2">📍 Valparaíso, Viña del Mar, Quilpué y Villa Alemana.</p>
+                <div class="flex gap-4">
+                    <!-- Icono rápido Instagram -->
+                    <a href="https://www.instagram.com/jessymasitas" target="_blank" class="bg-stone-800 p-2 rounded-full text-stone-400 hover:text-white hover:bg-gradient-to-tr hover:from-[#833AB4] hover:to-[#FD1D1D] transition shadow-md">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <!-- Icono rápido WhatsApp -->
+                    <a href="https://wa.me/56922438953" class="bg-stone-800 p-2 rounded-full text-stone-400 hover:text-white hover:bg-[#25D366] transition shadow-md">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.66.986 3.288 1.479 4.884 1.48 5.4 0 9.79-4.371 9.793-9.75 0-2.606-1.012-5.056-2.85-6.897-1.836-1.84-4.285-2.853-6.885-2.853-5.401 0-9.791 4.373-9.795 9.754-.001 1.73.491 3.42 1.423 4.899l-.993 3.624 3.731-.975zm11.074-6.282c-.107-.178-.393-.285-.821-.5s-2.524-1.246-2.917-1.389c-.393-.143-.679-.214-.964.214s-1.107 1.389-1.357 1.674-.5.321-.928.107c-.428-.214-1.81-.667-3.448-2.128-1.276-1.14-2.136-2.548-2.386-2.976-.25-.428-.027-.66.187-.872.193-.19.428-.5.642-.75s.285-.428.428-.714c.143-.286.071-.536-.036-.75s-.964-2.321-1.321-3.178c-.348-.836-.7-.723-.964-.736L6.7 4c-.25 0-.658.093-.1.642s-1.714 1.678-1.714 4.089 1.75 4.75 1.999 5.089c.25.339 3.442 5.256 8.34 7.384 1.165.506 2.075.808 2.786 1.033 1.17.372 2.235.32 3.076.195.936-.14 2.864-1.17 3.268-2.302.404-1.132.404-2.107.285-2.311z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Línea divisoria y Copyright -->
+        <div class="max-w-6xl mx-auto pt-6 border-t border-stone-800 text-center text-xs text-stone-500">
+            <p>© 2026 Masas Jessy. Todos los derechos reservados. Hecho con ❤️ para la Región de Valparaíso.</p>
         </div>
     </footer>
 
-    <!-- ENLACE SEGURO AL ARCHIVO SCRIPT -->
-    <script src="script.js" defer></script>
+    <!-- ==========================================
+         SCRIPTS / FUNCIONALIDAD JAVASCRIPT
+         ========================================== -->
+    <script src="js/script.js"></script>
 </body>
 </html>
